@@ -1,0 +1,99 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.0",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "fontfaceobserver": "^2.1.0",
+    "i18next": "^21.6.14",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "react": "^17.0.2",
+    "react-app-polyfill": "^3.0.0",
+    "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.2.3",
+    "react-i18next": "^11.16.2",
+    "react-is": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "^5.0.0",
+    "redux-injectors": "^1.3.0",
+    "redux-saga": "^1.1.3",
+    "styled-components": "^5.3.5",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@types/fontfaceobserver": "^2.1.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@types/react-redux": "^7.1.23",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/rimraf": "^3.0.2",
+    "@types/shelljs": "^0.8.11",
+    "@types/styled-components": "^5.1.24",
+    "@types/testing-library__jest-dom": "^5.14.3",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-env": "^1.16.3",
+    "chalk": "^5.0.1",
+    "cross-env": "^7.0.3",
+    "devmoji": "^2.3.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^3.2.3",
+    "git-branch-is": "^4.0.0",
+    "husky": "^7.0.4",
+    "i18next-scanner": "^3.1.0",
+    "inquirer": "^8.2.2",
+    "inquirer-directory": "^2.2.0",
+    "jest-styled-components": "^7.0.8",
+    "lint-staged": "^12.3.7",
+    "node-plop": "^0.30.0",
+    "plop": "^3.0.5",
+    "prettier": "^2.6.1",
+    "react-test-renderer": "^17.0.2",
+    "replace-in-file": "^6.3.2",
+    "rimraf": "^3.0.2",
+    "serve": "^13.0.2",
+    "shelljs": "^0.8.5",
+    "standard-version": "^9.3.2",
+    "stylelint": "^14.6.1",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}
