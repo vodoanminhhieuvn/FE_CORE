@@ -1,10 +1,12 @@
+import { Token } from 'types/Auth';
+
 export interface AuthFormState {
   username: string;
   email: string;
   password: string;
   rePassword: string;
-  token: string;
-  refreshToken: string;
+  token: Token;
+  refreshToken: Token;
   loading: boolean;
   error?: AuthErrorType | null;
 }
@@ -14,5 +16,7 @@ export enum AuthErrorType {
   MISSING_EMAIL = 2,
   MISSING_PASSWORD = 3,
   MISSING_RE_PASSWORD = 4,
+  WRONG_EMAIL_OR_PASSWORD = 5,
 }
+
 export type ContainerState = AuthFormState;

@@ -16,8 +16,7 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { LoginPage } from './pages/LoginPage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import SignUpForm from './pages/LoginPage/SignUpForm';
-import SignInForm from './pages/LoginPage/SignInForm';
+import { SignUpForm, SignInForm } from './pages/LoginPage/Features/AuthForm';
 
 export function App() {
   const { i18n } = useTranslation();
