@@ -22,7 +22,6 @@ export function* getRepos() {
     // Call our request helper (see 'utils/request')
 
     const repos: Repo[] = yield call(request, requestURL);
-    console.log(repos);
     if (repos?.length > 0) {
       yield put(actions.reposLoaded(repos));
     } else {

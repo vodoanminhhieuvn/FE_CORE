@@ -1,5 +1,5 @@
 import { call, put, select, takeLatest, delay } from 'redux-saga/effects';
-import { request } from 'utils/request';
+import { request, RequestMethod, requestOption } from 'utils/request';
 import {
   selectUsername,
   selectEmail,
@@ -7,8 +7,10 @@ import {
   selectRePassword,
 } from './selectors';
 import { authFormActions as actions } from '.';
+import { sessionActions } from '../../../../../slice';
 import { AuthErrorType } from './types';
 import { AuthResponseItem } from 'types/Auth';
+import { LocalStorageType } from 'types/LocalStorageType';
 
 export function* getUserToken() {
   yield delay(500);
@@ -27,15 +29,18 @@ export function* getUserToken() {
   const requestURL = 'http://localhost:9000/v1/auth/login';
 
   try {
-    const authInfos: AuthResponseItem = yield call(request, requestURL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    });
+    const authInfos: AuthResponseItem = yield call(
+      request,
+      requestURL,
+      requestOption(RequestMethod.POST, { email: email, password: password }),
+    );
 
+    localStorage.setItem(
+      LocalStorageType.REFRESH_TOKEN,
+      JSON.stringify(authInfos.tokens.refresh),
+    );
+
+    yield put(sessionActions.updateAccessToken(authInfos.tokens.access));
     yield put(actions.tokenLoaded(authInfos));
   } catch (err: any) {
     yield put(actions.authError(AuthErrorType.WRONG_EMAIL_OR_PASSWORD));

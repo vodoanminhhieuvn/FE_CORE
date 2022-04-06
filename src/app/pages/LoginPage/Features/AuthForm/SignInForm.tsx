@@ -1,6 +1,11 @@
-import React from 'react';
+import {
+  selectAccessToken,
+  selectIsAuthenticated,
+  selectRedirectPath,
+} from 'app/slice/selectors';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   FormCenter,
   FormField,
@@ -13,11 +18,26 @@ import { selectEmail, selectPassword } from './slice/selectors';
 
 export default function SignInForm() {
   const { actions } = useAuthFormSlice();
+  const navigate = useNavigate();
 
   const email = useSelector(selectEmail);
   const password = useSelector(selectPassword);
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  // const accessToken = useSelector(selectAccessToken);
+  const redirectPath = useSelector(selectRedirectPath);
 
   const dispatch = useDispatch();
+
+  const useEffectOnAuthenticated = (effect: React.EffectCallback) => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(effect, [isAuthenticated]);
+  };
+
+  useEffectOnAuthenticated(() => {
+    if (isAuthenticated) {
+      navigate(redirectPath);
+    }
+  });
 
   const onChangeEmail = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(actions.changeEmail(evt.currentTarget.value));
@@ -28,7 +48,6 @@ export default function SignInForm() {
   };
 
   const onSubmitForm = (evt?: React.FormEvent<HTMLFormElement>) => {
-    console.log('Input here', email, password);
     if (evt !== undefined && evt.preventDefault) {
       dispatch(actions.loadToken());
       evt.preventDefault();

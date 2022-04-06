@@ -15,7 +15,7 @@ export function LoginPage() {
     <>
       <Helmet>
         <title>Login Page</title>
-        <meta name="Login page" content="LoginPage" />
+        <meta name="Authentication" content="AuthenticationPage" />
       </Helmet>
 
       <LoginPageWrapper>

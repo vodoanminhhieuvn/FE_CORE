@@ -48,10 +48,27 @@ export async function request(
   url: string,
   options?: RequestInit,
 ): Promise<{} | { err: ResponseError }> {
-  console.log(options);
   const fetchResponse = await fetch(url, options);
   const response = checkStatus(fetchResponse);
   return parseJSON(response);
 }
 
-// TODO Refactor post and get request body
+export enum RequestMethod {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
+}
+
+export function requestOption(
+  method: RequestMethod,
+  body: Object,
+): RequestInit {
+  const json_body = JSON.stringify(body);
+
+  return {
+    method: method,
+    headers: { 'Content-Type': 'application/json' },
+    body: json_body,
+  };
+}

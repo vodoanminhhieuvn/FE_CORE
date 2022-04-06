@@ -10,7 +10,7 @@ export interface Tokens {
 
 export interface Token {
   token: string;
-  expires: Date;
+  expires: string;
 }
 
 export interface User {
