@@ -21,8 +21,6 @@ export default function SignInForm() {
   const { actions } = useAuthFormSlice();
   const navigate = useNavigate();
 
-  const email = useSelector(selectEmail);
-  const password = useSelector(selectPassword);
   const isAuthenticated = useSelector(selectIsAuthenticated);
   // const accessToken = useSelector(selectAccessToken);
   const redirectPath = useSelector(selectRedirectPath);
