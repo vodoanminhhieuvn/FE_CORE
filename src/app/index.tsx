@@ -10,9 +10,6 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 
-import { GlobalStyle } from '../styles/global-styles';
-
-import { HomePage } from './pages/HomePage/Loadable';
 import { LoginPage } from './pages/LoginPage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
@@ -76,7 +73,11 @@ export function App() {
           <Route
             path={process.env.PUBLIC_URL + '/'}
             element={
-              <ProtectedRoute {...protectedRouteProps} outlet={<HomePage />} />
+              <Navigate to="/auth/sign-in" replace />
+              // <ProtectedRoute
+              //   {...protectedRouteProps}
+              //   outlet={<NotFoundPage />}
+              // />
             }
           />
           <Route
@@ -90,8 +91,6 @@ export function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       )}
-
-      <GlobalStyle />
     </BrowserRouter>
   );
 }

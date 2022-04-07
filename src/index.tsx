@@ -15,6 +15,7 @@ import FontFaceObserver from 'fontfaceobserver';
 
 // Use consistent styling
 import 'sanitize.css/sanitize.css';
+import 'styles/volt.scss';
 
 import { App } from 'app';
 
