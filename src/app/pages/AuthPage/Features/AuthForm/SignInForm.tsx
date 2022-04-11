@@ -1,13 +1,7 @@
-import {
-  selectAccessToken,
-  selectIsAuthenticated,
-  selectRedirectPath,
-} from 'app/slice/selectors';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useAuthFormSlice } from './slice';
-import { selectEmail, selectPassword } from './slice/selectors';
 
 import { Form, Card, FormCheck } from '@themesberg/react-bootstrap';
 
@@ -19,24 +13,8 @@ import PrimaryTextButton from 'app/components/PrimaryTextButton';
 
 export default function SignInForm() {
   const { actions } = useAuthFormSlice();
-  const navigate = useNavigate();
-
-  const isAuthenticated = useSelector(selectIsAuthenticated);
-  // const accessToken = useSelector(selectAccessToken);
-  const redirectPath = useSelector(selectRedirectPath);
 
   const dispatch = useDispatch();
-
-  const useEffectOnAuthenticated = (effect: React.EffectCallback) => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(effect, [isAuthenticated]);
-  };
-
-  useEffectOnAuthenticated(() => {
-    if (isAuthenticated) {
-      navigate(redirectPath);
-    }
-  });
 
   const onChangeEmail = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(actions.changeEmail(evt.currentTarget.value));

@@ -1,4 +1,4 @@
-import { AuthFormState } from 'app/pages/LoginPage/Features/AuthForm/slice/types';
+import { AuthFormState } from 'app/pages/AuthPage/Features/AuthForm/slice/types';
 import { SessionState } from 'app/slice/types';
 import { ThemeState } from 'styles/theme/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly

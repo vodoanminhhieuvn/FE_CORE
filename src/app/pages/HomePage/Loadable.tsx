@@ -2,13 +2,14 @@
  * Asynchronously loads the component for HomePage
  */
 
+import Preloader from 'app/components/Preloader';
 import * as React from 'react';
 import { lazyLoad } from 'utils/loadable';
 
-export const LoginPage = lazyLoad(
+export const HomePage = lazyLoad(
   () => import('./index'),
-  module => module.AuthPage,
+  module => module.HomePage,
   {
-    fallback: <br />,
+    fallback: <Preloader show={true} />,
   },
 );

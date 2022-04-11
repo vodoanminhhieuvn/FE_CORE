@@ -1,4 +1,4 @@
-import { faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '@themesberg/react-bootstrap';
 

@@ -13,8 +13,6 @@ import { AuthResponseItem } from 'types/Auth';
 import { LocalStorageType } from 'types/LocalStorageType';
 
 export function* getUserToken() {
-  yield delay(500);
-
   const email: string = yield select(selectEmail);
   const password: string = yield select(selectPassword);
 

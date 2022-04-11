@@ -10,10 +10,10 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 
-import { LoginPage } from './pages/LoginPage/Loadable';
+import { LoginPage } from './pages/AuthPage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import { SignUpForm, SignInForm } from './pages/LoginPage/Features/AuthForm';
+import { SignUpForm, SignInForm } from './pages/AuthPage/Features/AuthForm';
 import { useSessionSlice } from './slice';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -25,6 +25,8 @@ import ProtectedRoute, {
   ProtectedRouteProps,
 } from './components/Router/ProtectedRoutes';
 import { useEffect } from 'react';
+import { HomePage } from './pages/HomePage/Loadable';
+import Preloader from './components/Preloader';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -66,31 +68,25 @@ export function App() {
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
 
-      {loading ? (
-        <br />
-      ) : (
-        <Routes>
-          <Route
-            path={process.env.PUBLIC_URL + '/'}
-            element={
-              <Navigate to="/auth/sign-in" replace />
-              // <ProtectedRoute
-              //   {...protectedRouteProps}
-              //   outlet={<NotFoundPage />}
-              // />
-            }
-          />
-          <Route
-            path={process.env.PUBLIC_URL + '/auth/*'}
-            element={<LoginPage />}
-          >
-            <Route path="sign-up" element={<SignUpForm />} />
-            <Route path="sign-in" element={<SignInForm />} />
-            <Route path="*" element={<Navigate to="sign-in" replace />} />
-          </Route>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      )}
+      <Preloader show={loading} />
+
+      <Routes>
+        <Route
+          path={process.env.PUBLIC_URL + '/'}
+          element={
+            <ProtectedRoute {...protectedRouteProps} outlet={<HomePage />} />
+          }
+        />
+        <Route
+          path={process.env.PUBLIC_URL + '/auth/*'}
+          element={<LoginPage />}
+        >
+          <Route path="sign-up" element={<SignUpForm />} />
+          <Route path="sign-in" element={<SignInForm />} />
+          <Route path="*" element={<Navigate to="sign-in" replace />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
