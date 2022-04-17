@@ -1,6 +1,6 @@
+import { LocalStorageType } from 'enum/LocalStorageType';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { Tokens } from 'types/Auth';
-import { LocalStorageType } from 'types/LocalStorageType';
 import { checkAuthorization } from 'utils/checkStore';
 import { request, RequestMethod, requestOption } from 'utils/request';
 import { sessionActions } from '.';

@@ -66,7 +66,7 @@ export default function SignInForm() {
       <div className="d-flex justify-content-center align-items-center mt-4">
         <span className="fw-normal">
           Not registered?
-          <Card.Link as={Link} to="/sign-up" className="fw-bold">
+          <Card.Link as={Link} to={'/auth/sign-up'} className="fw-bold">
             {` Create account `}
           </Card.Link>
         </span>

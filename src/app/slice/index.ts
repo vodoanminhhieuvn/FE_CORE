@@ -8,7 +8,7 @@ export const initialState: SessionState = {
   loading: true,
   accessToken: {} as Token,
   isAuthenticated: false,
-  redirectPath: '/',
+  redirectPath: '/dashboard',
 };
 
 const slice = createSlice({

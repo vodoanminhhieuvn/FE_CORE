@@ -21,6 +21,7 @@ export function AuthPage() {
   };
 
   useEffectOnAuthenticated(() => {
+    console.log('Hello Auth Form');
     if (isAuthenticated) {
       navigate(redirectPath);
     }

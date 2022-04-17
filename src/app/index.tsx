@@ -27,34 +27,36 @@ import ProtectedRoute, {
 import { useEffect } from 'react';
 import { HomePage } from './pages/HomePage/Loadable';
 import Preloader from './components/Preloader';
+import ChatFeedPage from './pages/HomePage/Features/ChatFeed';
 
 export function App() {
   const { i18n } = useTranslation();
   const { actions: sessionActions } = useSessionSlice();
   const dispatch = useDispatch();
 
-  const isAuthenticated = useSelector(selectIsAuthenticated);
+  // const isAuthenticated = useSelector(selectIsAuthenticated);
   const loading = useSelector(selectLoading);
-  const redirectPath = useSelector(selectRedirectPath);
+  // const redirectPath = useSelector(selectRedirectPath);
 
-  const setRedirectPath = (path: string) => {
-    // updateSessionContext({...sessionContext, redirectPath: path});
-    dispatch(sessionActions.updateRedirectPath(path));
-  };
+  // const setRedirectPath = (path: string) => {
+  //   // updateSessionContext({...sessionContext, redirectPath: path});
+  //   dispatch(sessionActions.updateRedirectPath(path));
+  // };
 
   const useEffectOnMount = (effect: React.EffectCallback) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(effect, []);
   };
 
-  const protectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
-    isAuthenticated: isAuthenticated,
-    authenticationPath: '/auth',
-    redirectPath: redirectPath,
-    setRedirectPath: setRedirectPath,
-  };
+  // const protectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
+  //   isAuthenticated: isAuthenticated,
+  //   authenticationPath: '/auth',
+  //   redirectPath: redirectPath,
+  //   setRedirectPath: setRedirectPath,
+  // };
 
   useEffectOnMount(() => {
+    console.log(loading);
     dispatch(sessionActions.checkRefreshToken());
   });
 
@@ -72,11 +74,11 @@ export function App() {
 
       <Routes>
         <Route
-          path={process.env.PUBLIC_URL + '/'}
-          element={
-            <ProtectedRoute {...protectedRouteProps} outlet={<HomePage />} />
-          }
-        />
+          path={process.env.PUBLIC_URL + '/dashboard'}
+          element={<HomePage />}
+        >
+          <Route path="chat-feed" element={<ChatFeedPage />} />
+        </Route>
         <Route
           path={process.env.PUBLIC_URL + '/auth/*'}
           element={<LoginPage />}
@@ -85,6 +87,7 @@ export function App() {
           <Route path="sign-in" element={<SignInForm />} />
           <Route path="*" element={<Navigate to="sign-in" replace />} />
         </Route>
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

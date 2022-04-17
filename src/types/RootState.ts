@@ -1,4 +1,5 @@
 import { AuthFormState } from 'app/pages/AuthPage/Features/AuthForm/slice/types';
+import { ChatState } from 'app/pages/HomePage/Features/ChatFeed/slice/types';
 import { SessionState } from 'app/slice/types';
 import { ThemeState } from 'styles/theme/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
@@ -13,5 +14,6 @@ export interface RootState {
   theme?: ThemeState;
   authForm?: AuthFormState;
   session?: SessionState;
+  chat?: ChatState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

@@ -192,24 +192,18 @@ export default function SideBar(props = {}) {
                 link={Routes.DashboardOverview.path}
                 icon={faChartPie}
               />
+              <Link to={'/dashboard/chat-feed'}>Settings</Link>
               <NavItem
-                external
-                title="Messages"
-                link="https://demo.themesberg.com/volt-pro-react/#/messages"
-                target="_blank"
-                badgeText="Pro"
-                icon={faInbox}
+                title="Settings"
+                icon={faCog}
+                link={Routes.Settings.path}
               />
               <NavItem
                 title="Transactions"
                 icon={faHandHoldingUsd}
                 link={Routes.Transactions.path}
               />
-              <NavItem
-                title="Settings"
-                icon={faCog}
-                link={Routes.Settings.path}
-              />
+              <NavItem external title="Settings" icon={faCog} />
               <NavItem
                 external
                 title="Calendar"

@@ -1,6 +1,6 @@
 // import { Token } from 'types/Auth';
+import { LocalStorageType } from 'enum/LocalStorageType';
 import { Token } from 'types/Auth';
-import { LocalStorageType } from 'types/LocalStorageType';
 
 export function checkAuthorization() {
   const storedToken = localStorage.getItem(LocalStorageType.REFRESH_TOKEN);
