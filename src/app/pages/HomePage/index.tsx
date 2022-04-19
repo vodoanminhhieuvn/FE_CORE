@@ -15,7 +15,7 @@ export function HomePage() {
     <>
       <SideBar />
       <main className="content">
-        <Navbar />
+        {/* <Navbar /> */}
         <Outlet />
         {/* <Footer toggleSettings={toggleSettings} showSettings={showSettings} /> */}
       </main>

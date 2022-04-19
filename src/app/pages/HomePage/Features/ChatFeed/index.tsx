@@ -1,25 +1,35 @@
-import { useSelector } from 'react-redux';
-import { ChatFeed } from '../../components/ChatComponents';
+import { useDispatch } from 'react-redux';
+import { OnChangeEvent } from 'types/event';
 import MessageInput from '../../components/MessageInput';
 import { Messages } from '../../components/Messages';
-import { selectMessages } from './slice/selectors';
+import { useChatSlice } from './slice';
 
 // ? Importing styles
 import styles from './styles.module.scss';
 
 export default function ChatFeedPage() {
-  const messages = useSelector(selectMessages);
+  const { actions: chatFeedActions } = useChatSlice();
+
+  const dispatch = useDispatch();
+
+  const onChangeUserMessage = (evt: OnChangeEvent) => {
+    dispatch(chatFeedActions.changeUserMessage(evt.currentTarget.value));
+  };
+
+  const onClick = () => {
+    dispatch(chatFeedActions.submitUserMessage());
+  };
 
   const mainContent = (
     <div className={styles.main}>
       <Messages />
-      <MessageInput />
+      <MessageInput onClick={onClick} onChange={onChangeUserMessage} />
     </div>
   );
 
   return (
     <div className={styles.container}>
-      <div className={styles.side}></div>
+      {/* <div className={styles.side}></div> */}
       {mainContent}
     </div>
   );

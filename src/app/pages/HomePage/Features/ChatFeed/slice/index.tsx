@@ -8,18 +8,28 @@ import { MessageResponseItem } from 'types/Chat';
 
 export const initialState: ChatState = {
   messages: [],
-  loading: false,
+  userMessage: '',
+  chatLoading: false,
 };
 
 const slice = createSlice({
   name: 'chat',
   initialState,
   reducers: {
+    changeUserMessage(state, action: PayloadAction<string>) {
+      state.userMessage = action.payload;
+    },
     loadMessages(state) {
-      state.loading = true;
+      state.chatLoading = true;
     },
     messagesLoaded(state, action: PayloadAction<MessageResponseItem[]>) {
-      state.messages = action.payload;
+      state.messages.push(...action.payload);
+    },
+    submitUserMessage(state) {
+      state.chatLoading = true;
+    },
+    chatbotRespondSuccessfully(state) {
+      state.chatLoading = false;
     },
   },
 });

@@ -1,4 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { MessageResponseItem } from 'types/Chat';
+import { selectMessages } from '../Features/ChatFeed/slice/selectors';
 import {
   ChatMessage,
   ChatMessageContainer,
@@ -6,10 +9,14 @@ import {
 } from './ChatComponents';
 
 export function Messages() {
+  const messages: MessageResponseItem[] = useSelector(selectMessages);
+
   return (
-    <div id="chat" className="chat-container">
+    <div className="chat-container">
       <div className="chatWrapper">
-        <Message message="New Message" />
+        {messages.map(message => (
+          <Message key={message.text} message={message.text} />
+        ))}
       </div>
     </div>
   );

@@ -1,7 +1,4 @@
-import {
-  faEnvelope,
-  IconDefinition,
-} from '@fortawesome/free-regular-svg-icons';
+import { IconDefinition } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Form, InputGroup } from '@themesberg/react-bootstrap';
 import React, { ReactChild, ReactChildren } from 'react';
@@ -16,6 +13,7 @@ export function AuthForm(props: {
     </Form>
   );
 }
+
 export function AuthFormGroup(props: {
   formLabel: string;
   icon: IconDefinition;

@@ -8,3 +8,13 @@ export const selectMessages = createSelector(
   [selectDomain],
   chatState => chatState.messages,
 );
+
+export const selectUserMessage = createSelector(
+  [selectDomain],
+  chatState => chatState.userMessage,
+);
+
+export const selectLoading = createSelector(
+  [selectDomain],
+  chatState => chatState.chatLoading,
+);

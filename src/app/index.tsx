@@ -87,7 +87,7 @@ export function App() {
           <Route path="sign-in" element={<SignInForm />} />
           <Route path="*" element={<Navigate to="sign-in" replace />} />
         </Route>
-
+        <Route path="/" element={<Navigate to="dashboard" replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
