@@ -1,6 +1,8 @@
+import { faWhiskeyGlass } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { MessageResponseItem } from 'types/Chat';
+import { experiments } from 'webpack';
 import { selectMessages } from '../Features/ChatFeed/slice/selectors';
 import {
   ChatMessage,
@@ -26,8 +28,21 @@ export function Message(props: { message: string }) {
   return (
     <ChatMessageContainer>
       <ChatTextBox>
-        <ChatMessage>{props.message}</ChatMessage>
+        <ChatMessage
+          style={{
+            float: 'right',
+            marginRight: '18px',
+            color: 'white',
+            backgroundColor: '#3B2A50',
+          }}
+        >
+          {props.message}
+        </ChatMessage>
       </ChatTextBox>
     </ChatMessageContainer>
   );
+}
+
+export function MessageRefactor(props: { message: string }) {
+  return <h1>Hello World</h1>;
 }

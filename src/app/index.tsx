@@ -10,10 +10,11 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 
+import './App.scss';
+
 import { LoginPage } from './pages/AuthPage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import { SignUpForm, SignInForm } from './pages/AuthPage/Features/AuthForm';
 import { useSessionSlice } from './slice';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -21,13 +22,11 @@ import {
   selectLoading,
   selectRedirectPath,
 } from './slice/selectors';
-import ProtectedRoute, {
-  ProtectedRouteProps,
-} from './components/Router/ProtectedRoutes';
+
 import { useEffect } from 'react';
 import { HomePage } from './pages/HomePage/Loadable';
-import Preloader from './components/Preloader';
 import ChatFeedPage from './pages/HomePage/Features/ChatFeed';
+import { SignInForm, SignUpForm } from './pages/AuthPage/Features';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -69,8 +68,6 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
-
-      <Preloader show={loading} />
 
       <Routes>
         <Route

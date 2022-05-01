@@ -1,41 +1,20 @@
-import React, { useEffect } from 'react';
-import { Container } from '@themesberg/react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-
-import BgImage from '../../../assets/img/illustrations/signin.svg';
-import { AuthWrapper } from './components/AuthWrapper';
+import { AnimatedBackground } from 'app/components/AnimatedPack/AnimatedBackground';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { selectIsAuthenticated, selectRedirectPath } from 'app/slice/selectors';
-import { useSelector } from 'react-redux';
+import styles from './index.module.scss';
 
-export function AuthPage() {
-  const navigate = useNavigate();
-
-  const isAuthenticated = useSelector(selectIsAuthenticated);
-  // const accessToken = useSelector(selectAccessToken);
-  const redirectPath = useSelector(selectRedirectPath);
-
-  const useEffectOnAuthenticated = (effect: React.EffectCallback) => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(effect, [isAuthenticated]);
-  };
-
-  useEffectOnAuthenticated(() => {
-    console.log('Hello Auth Form');
-    if (isAuthenticated) {
-      navigate(redirectPath);
-    }
-  });
-
+export function AuthLayout() {
   return (
-    <main>
-      <section className="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
-        <Container>
-          <AuthWrapper bgImage={BgImage}>
-            <Outlet />
-          </AuthWrapper>
-        </Container>
-      </section>
-    </main>
+    <div className={styles.auth_background}>
+      <div className={styles.box_root}>
+        <AnimatedBackground />
+        <Outlet />
+      </div>
+    </div>
+    // <main className={styles.authContent}>
+    //   <div className={styles.sideContent}>
+    //     <Outlet />
+    //   </div>
+    // </main>
   );
 }

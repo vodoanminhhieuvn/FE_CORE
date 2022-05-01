@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navbar } from '@themesberg/react-bootstrap';
-import SideBar from 'app/components/Sidebar';
 
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -13,7 +12,6 @@ export function HomePage() {
     <Navigate to="/auth" replace />
   ) : (
     <>
-      <SideBar />
       <main className="content">
         {/* <Navbar /> */}
         <Outlet />

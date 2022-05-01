@@ -21,15 +21,15 @@ export const ChatMessageContainer = styled.div`
 `;
 
 export const ChatTextBox = styled.div`
-  margin: 30px 0px 30px 20px;
+  width: 100%;
+  display: inline-block;
 `;
 
 export const ChatMessage = styled.p`
-  color: #e0e0e0;
-  font-size: 14px;
-  @media screen and (max-width: 350px) {
-    font-size: 12px;
-  }
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  max-width: 60%;
 `;
 
 export const ChatInputContainer = styled.div`

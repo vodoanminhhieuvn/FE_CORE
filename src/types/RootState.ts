@@ -1,7 +1,8 @@
-import { AuthFormState } from 'app/pages/AuthPage/Features/AuthForm/slice/types';
+import { SignInState } from 'app/pages/AuthPage/Features/SignInForm/slice/types';
+import { SignUpState } from 'app/pages/AuthPage/Features/SignUpForm/SignUpSlice/types';
+import { AuthFormState } from 'app/pages/AuthPage/slice/types';
 import { ChatState } from 'app/pages/HomePage/Features/ChatFeed/slice/types';
 import { SessionState } from 'app/slice/types';
-import { ThemeState } from 'styles/theme/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /*
@@ -11,7 +12,8 @@ import { ThemeState } from 'styles/theme/slice/types';
   So, not available always
 */
 export interface RootState {
-  theme?: ThemeState;
+  signIn?: SignInState;
+  signUp?: SignUpState;
   authForm?: AuthFormState;
   session?: SessionState;
   chat?: ChatState;

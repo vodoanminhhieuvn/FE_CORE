@@ -1,0 +1,25 @@
+.chatMessageContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.chatTextBox {
+  width: 100%;
+  display: inline-block;
+}
+
+.chatMessage {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  max-width: 60%;
+}
+
+.myMessage,
+.chatMessage {
+  float: 'right';
+  margin-right: '18px';
+  color: 'white';
+  background-color: '#3B2A50';
+}
