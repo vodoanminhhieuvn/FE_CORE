@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { OnChangeEvent } from 'types/event';
+import { OnChangeEvent } from 'types/Event';
 import MessageInput from '../../components/MessageInput';
 import { Messages } from '../../components/Messages';
 import { useChatSlice } from './slice';

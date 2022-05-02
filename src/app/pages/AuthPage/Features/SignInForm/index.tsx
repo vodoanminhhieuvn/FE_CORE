@@ -1,13 +1,11 @@
 import React from 'react';
-import MainPage from 'app/components/MainPage';
-import styles from '../authFeatures.module.scss';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
-import { Form, FormCheck, Card } from '@themesberg/react-bootstrap';
-import { AuthForm, AuthFormGroup } from '../../components/AuthForm';
-import PrimaryTextButton from 'app/components/ButtonPack/PrimaryTextButton/PrimaryTextButton';
 import { useDispatch } from 'react-redux';
 import { useSignInFormSlice } from './slice';
+import InputField from 'app/components/Form/InputField';
+import InputPasswordField from 'app/components/Form/InputPasswordField';
+import SubmitButton from 'app/components/ButtonPack/SubmitButton';
+import styles from './signInForm.module.scss';
+import SingleCheck from 'app/components/Form/SingleCheck';
 
 export default function SignInForm() {
   const { actions } = useSignInFormSlice();
@@ -31,41 +29,21 @@ export default function SignInForm() {
 
   return (
     <>
-      <MainPage
-        displayBrand={true}
-        heading1="Learn together"
-        heading2="Smart together"
-      />
+      <span className={styles.title}>Sign in to your account</span>
 
-      <AuthForm onSubmit={onSubmitForm}>
-        <AuthFormGroup
-          formLabel="Your Email"
-          icon={faEnvelope}
-          inputType="email"
-          placeholder="example@company.com"
+      <form onSubmit={onSubmitForm}>
+        <InputField
           onChange={onChangeEmail}
+          leadingLabel="Email"
+          inputType="email"
         />
-
-        <AuthFormGroup
-          formLabel="Your Password"
-          icon={faUnlockAlt}
-          inputType="password"
-          placeholder="Password"
+        <InputPasswordField
           onChange={onChangePassword}
+          forgotPasswordUrl="/forgot-password"
         />
-
-        <div className="d-flex justify-content-between align-items-center mb-4">
-          <Form.Check type="checkbox">
-            <FormCheck.Input id="defaultCheck5" className="me-2" />
-            <FormCheck.Label htmlFor="defaultCheck5" className="mb-0">
-              Remember me
-            </FormCheck.Label>
-          </Form.Check>
-          <Card.Link className="small text-end">Lost password?</Card.Link>
-        </div>
-
-        <PrimaryTextButton type="submit" text="Sign in" />
-      </AuthForm>
+        <SingleCheck />
+        <SubmitButton />
+      </form>
     </>
   );
 }

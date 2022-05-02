@@ -25,3 +25,47 @@
   min-height: 100vh;
   flex-grow: 1;
 }
+
+.auth_form_container {
+  box-sizing: border-box;
+  padding-top: 24px;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  flex-grow: 1;
+  z-index: 9;
+
+  .header_container {
+    box-sizing: border-box;
+    padding-top: 48px;
+    padding-bottom: 24px;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    h1 {
+      letter-spacing: -1px;
+    }
+    a {
+      color: #5469d4;
+      text-decoration: unset;
+    }
+  }
+
+  .form_background {
+    margin: 0px auto;
+    width: 100%;
+    max-width: 448px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+      rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+
+    .form_inner {
+      padding: 48px;
+    }
+  }
+
+  .form_footer {
+  }
+}

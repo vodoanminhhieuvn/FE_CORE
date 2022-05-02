@@ -1,0 +1,28 @@
+.check_field {
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  label {
+    margin-bottom: 10px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  input {
+    width: 20px;
+    height: 15px;
+    margin-right: 5px;
+    box-shadow: unset;
+    min-height: unset;
+    font-size: 16px;
+    line-height: 28px;
+    padding: 8px 16px;
+    border: unset;
+    border-radius: 4px;
+    outline-color: rgb(84 105 212 / 0.5);
+    background-color: rgb(255, 255, 255);
+  }
+}

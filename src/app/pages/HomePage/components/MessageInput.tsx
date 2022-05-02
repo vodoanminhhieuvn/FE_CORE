@@ -3,7 +3,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 import { ChatInputContainer } from './ChatComponents';
 import { InputGroup, FormControl, Button } from '@themesberg/react-bootstrap';
-import { OnChangeEvent } from 'types/event';
+import { OnChangeEvent } from 'types/Event';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector } from 'react-redux';
 import { selectUserMessage } from '../Features/ChatFeed/slice/selectors';
